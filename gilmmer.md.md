@@ -37,21 +37,49 @@ return 0;
 int main() {
 
     int code;
-    for(;;){
-        printf("Show me your code,please.\n");
 
-        scanf("%d",&code);
+    for (;;) {
+        printf("Show me your 6-digit code, please.\n");
 
-        if(code >= 0  && code <= 999999){
+        scanf("%d", &code);
 
-        printf("I am super hacker!\n");
-
-        break;
-
-        }
-        else
-        printf("Fake code!");
+        if (code >= 100000 && code <= 999999) {
+            printf("I am super hacker!\n");
+            break;
+        } else {
+            printf("Invalid code. Please enter a 6-digit number.\n");
         }
-        return 0;
+    }
+
+    return 0;
+}
+```
+
+这个地方没有考虑到0开头的情况
+简单的改法如上
+
+复杂一点如下
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char code[7]; // 6 digits + 1 for null terminator
+
+    for (;;) {
+        printf("Show me your 6-digit code, please.\n");
+
+        scanf("%6s", code); // Read up to 6 characters
+
+        if (strlen(code) == 6 && strspn(code, "0123456789") == 6) {
+            printf("I am super hacker!\n");
+            break;
+        } else {
+            printf("Invalid code. Please enter a 6-digit number.\n");
         }
+    }
+
+    return 0;
+}
+
 ```
