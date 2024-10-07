@@ -58,18 +58,18 @@ int main() {
 这个地方没有考虑到0开头的情况
 简单的改法如上
 
-复杂一点如下
+复杂一点如下 （这里借助了人工智能，目前还没学到这里来，只能先把这个代码给注释清楚了）
 ```c
 #include <stdio.h>
 #include <string.h>
 
 int main() {
-    char code[7]; 
+    char code[7]; // 6 digits + 1 for null terminator
 
     for (;;) {
         printf("Show me your 6-digit code, please.\n");
 
-        scanf("%6s", code); 
+        scanf("%6s", code); // Read up to 6 characters
 
         if (strlen(code) == 6 && strspn(code, "0123456789") == 6) {
             printf("I am super hacker!\n");
