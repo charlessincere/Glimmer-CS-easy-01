@@ -61,7 +61,7 @@ int main() {
 复杂一点如下 （这里借助了人工智能，目前还没学到这里来，只能先把这个代码给注释清楚了）
 ```c
 #include <stdio.h>
-#include <string.h>
+#include <string.h>  //一个新的头文件
 
 int main() {
     char code[7]; // 6 digits + 1 for null terminator
@@ -71,7 +71,7 @@ int main() {
 
         scanf("%6s", code); // Read up to 6 characters
 
-        if (strlen(code) == 6 && strspn(code, "0123456789") == 6) {
+        if (strlen(code) == 6 && strspn(code, "0123456789") == 6) {  /*strlen会读取字符的长度，strspn会把第一个字符串和第二个进行对比，截取出相同的字符数，从左到右依次截取，保证输入的是6位数字*/
             printf("I am super hacker!\n");
             break;
         } else {
