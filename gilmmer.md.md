@@ -64,12 +64,12 @@ int main() {
 #include <string.h>
 
 int main() {
-    char code[7]; // 6 digits + 1 for null terminator
+    char code[7]; 
 
     for (;;) {
         printf("Show me your 6-digit code, please.\n");
 
-        scanf("%6s", code); // Read up to 6 characters
+        scanf("%6s", code); 
 
         if (strlen(code) == 6 && strspn(code, "0123456789") == 6) {
             printf("I am super hacker!\n");
